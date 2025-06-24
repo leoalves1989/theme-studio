@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Welcome to the best online art gallery",
             "link": ""
           }
         }
@@ -26,7 +26,7 @@
         "announcement-bar-0"
       ],
       "settings": {
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-05c384b3-1960-4d7b-a444-147833ee7804",
         "show_line_separator": true,
         "show_social": false,
         "auto_rotate": false,
