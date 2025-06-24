@@ -21,6 +21,7 @@
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
       width: 75%;
+      margin-right: 2rem;
     }
   {%- endif -%}
 
@@ -45,6 +46,7 @@
   .list-menu--inline {
     display: inline-flex;
     flex-wrap: wrap;
+    margin-right: 2rem;
   }
 
   summary.list-menu__item {
@@ -94,8 +96,14 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+
     }
+
+    .header__icons {
+    margin-left: auto;
+    }
+
   }
 {%- endstyle -%}
 
