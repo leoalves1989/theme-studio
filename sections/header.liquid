@@ -105,7 +105,7 @@
 
     .header__heading-logo-wrapper {
      margin-right: 5rem;
-     margin-left: 8px;
+     margin-left: {{ section.settings.logo_margin_left }}px;
      }
 
   }
@@ -648,6 +648,16 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
+    },
+    {
+      "type": "range",
+      "id": "logo_margin_left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Logo Left Margin",
+      "default": 8
     }
   ],
   "blocks": [
