@@ -20,10 +20,31 @@
         display: block;
       }
     }
+
+    
+
   {%- endstyle -%}
 {%- endif -%}
 
-{%- style -%}
+{% style %}
+  /* Remove margem lateral em mobile e desktop só neste banner */
+  #Banner-{{ section.id }} .page-width {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #Banner-{{ section.id }} .banner__content {
+    padding: 0 !important;
+    width: 100vw !important;
+    margin-left: calc((100% - 100vw) / 2) !important;
+  }
+
+  #Banner-{{ section.id }} .banner__box {
+    padding: 0 !important;
+  }
+
+
+  /* o seu código que faz o overlay opacity */
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
