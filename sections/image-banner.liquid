@@ -133,6 +133,7 @@
             <div
               class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
               {{ block.shopify_attributes }}
+              style="margin-right: {{ block.settings.button_margin_right }}px;"
             >
               {%- if block.settings.button_label_1 != blank -%}
                 <a
@@ -159,7 +160,8 @@
                 </a>
               {%- endif -%}
             </div>
-        {%- endcase -%}
+          {%- endcase -%}
+          
       {%- endfor -%}
     </div>
   </div>
@@ -475,6 +477,17 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+
+        {
+          "type": "range",
+          "id": "button_margin_right",
+          "min": 0,
+          "max": 200,
+          "step": 1,
+          "unit": "px",
+          "label": "Margem direita do botão",
+          "default": 0
         }
       ]
     }
