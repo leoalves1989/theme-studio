@@ -129,44 +129,37 @@
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
               <p>{{ block.settings.text }}</p>
             </div>
-            
+
           {%- when 'buttons' -%}
             {%- assign alpha = block.settings.button_opacity | default: 100 | divided_by: 100 -%}
+            {%- assign rgb   = block.settings.button_bg_color | color_to_rgb | remove: 'rgb(' | remove: ')' -%}
           
             <div
               class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
               {{ block.shopify_attributes }}
               style="margin-right: {{ block.settings.button_margin_right }}px;"
             >
-              {%- if block.settings.button_label_1 != blank -%}
-                <a
-                  {% if block.settings.button_link_1 == blank %}
-                    role="link" aria-disabled="true"
-                  {% else %}
-                    href="{{ block.settings.button_link_1 }}"
-                  {% endif %}
-                  class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
-                  style="--alpha-button-background: {{ alpha }}; background-color: {{ block.settings.button_bg_color }}; color: {{ block.settings.button_text_color }};"
-                >
-                  {{- block.settings.button_label_1 | escape -}}
-                </a>
-              {%- endif -%}
-          
-              {%- if block.settings.button_label_2 != blank -%}
-                <a
-                  {% if block.settings.button_link_2 == blank %}
-                    role="link" aria-disabled="true"
-                  {% else %}
-                    href="{{ block.settings.button_link_2 }}"
-                  {% endif %}
-                  class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
-                  style="--alpha-button-background: {{ alpha }}; background-color: {{ block.settings.button_bg_color }}; color: {{ block.settings.button_text_color }};"
-                >
-                  {{- block.settings.button_label_2 | escape -}}
-                </a>
-              {%- endif -%}
+              {%- for i in (1..2) -%}
+                {%- assign label      = block.settings["button_label_"  | append: i ] -%}
+                {%- assign link       = block.settings["button_link_"   | append: i ] -%}
+                {%- assign secondary  = block.settings["button_style_secondary_" | append: i ] -%}
+                {%- if label != blank -%}
+                  <a
+                    {% if link == blank %}role="link" aria-disabled="true"{% else %}href="{{ link }}"{% endif %}
+                    class="button{% if secondary %} button--secondary{% else %} button--primary{% endif %}"
+                    style="
+                      --color-button: {{ rgb }};
+                      --alpha-button-background: {{ alpha }};
+                      color: {{ block.settings.button_text_color }};
+                    "
+                  >
+                    {{- label | escape -}}
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
             </div>
           {%- endcase -%}
+          
           
           
       {%- endfor -%}
