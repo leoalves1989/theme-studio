@@ -20,13 +20,8 @@
         display: block;
       }
     }
-
-    
-
   {%- endstyle -%}
 {%- endif -%}
-
-
 
 {%- liquid
   assign full_width = '100vw'
@@ -119,12 +114,10 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            <h2
-              class="banner__heading inline-richtext {{ block.settings.heading_size }}"
-              {{ block.shopify_attributes }}
-            >
+            <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
               {{ block.settings.heading }}
             </h2>
+
           {%- when 'text' -%}
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
               <p>{{ block.settings.text }}</p>
@@ -133,35 +126,33 @@
           {%- when 'buttons' -%}
             {%- assign alpha = block.settings.button_opacity | default: 100 | times: 0.01 -%}
             {%- assign rgb   = block.settings.button_bg_color | color_to_rgb | remove: 'rgb(' | remove: ')' -%}
-          
-            <div
-              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
-              {{ block.shopify_attributes }}
-              style="margin-right: {{ block.settings.button_margin_right }}px;"
-            >
+
+            <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+                 {{ block.shopify_attributes }}
+                 style="margin-right: {{ block.settings.button_margin_right }}px;">
+
               {%- for i in (1..2) -%}
-                {%- assign label      = block.settings["button_label_"  | append: i ] -%}
-                {%- assign link       = block.settings["button_link_"   | append: i ] -%}
-                {%- assign secondary  = block.settings["button_style_secondary_" | append: i ] -%}
+                {%- assign label_key    = 'button_label_'            | append: i -%}
+                {%- assign link_key     = 'button_link_'             | append: i -%}
+                {%- assign style_key    = 'button_style_secondary_'  | append: i -%}
+
+                {%- assign label        = block.settings[label_key]  -%}
+                {%- assign link         = block.settings[link_key]   -%}
+                {%- assign secondary    = block.settings[style_key]  -%}
+
                 {%- if label != blank -%}
-                  <a
-                    {% if link == blank %}role="link" aria-disabled="true"{% else %}href="{{ link }}"{% endif %}
-                    class="button{% if secondary %} button--secondary{% else %} button--primary{% endif %}"
-                    style="
-                      --color-button: {{ rgb }};
-                      --alpha-button-background: {{ alpha }};
-                      color: {{ block.settings.button_text_color }};
-                    "
-                  >
+                  <a {% if link == blank %}role="link" aria-disabled="true"{% else %}href="{{ link }}"{% endif %}
+                     class="button{% if secondary %} button--secondary{% else %} button--primary{% endif %}"
+                     style="
+                       --color-button: {{ rgb }};
+                       --alpha-button-background: {{ alpha }};
+                       color: {{ block.settings.button_text_color }};">
                     {{- label | escape -}}
                   </a>
                 {%- endif -%}
               {%- endfor -%}
             </div>
-          {%- endcase -%}
-          
-          
-          
+        {%- endcase -%}
       {%- endfor -%}
     </div>
   </div>
