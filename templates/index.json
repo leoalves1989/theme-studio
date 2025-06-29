@@ -130,49 +130,37 @@
     "image_banner_jcNJdJ": {
       "type": "image-banner",
       "blocks": {
-        "heading_WdqwpM": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_mhVMRr": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
         "buttons_Wnx3Kj": {
           "type": "buttons",
           "settings": {
             "button_label_1": "Button label",
             "button_link_1": "",
             "button_style_secondary_1": false,
-            "button_label_2": "Button label",
+            "button_label_2": "",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": false,
+            "button_margin_right": 83,
+            "button_text_color": "#000000",
+            "button_bg_color": "#fcfcfc"
           }
         }
       },
       "block_order": [
-        "heading_WdqwpM",
-        "text_mhVMRr",
         "buttons_Wnx3Kj"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_27_de_jun._de_2025_21_21_16.png",
         "image_overlay_opacity": 0,
         "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
+        "desktop_content_position": "bottom-right",
+        "show_text_box": false,
+        "desktop_content_alignment": "right",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "mobile_content_alignment": "right",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     }
   },
