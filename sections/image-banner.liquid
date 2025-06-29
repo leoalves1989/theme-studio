@@ -131,7 +131,7 @@
             </div>
 
           {%- when 'buttons' -%}
-            {%- assign alpha = block.settings.button_opacity | default: 100 | divided_by: 100 -%}
+            {%- assign alpha = block.settings.button_opacity | default: 100 | times: 0.01 -%}
             {%- assign rgb   = block.settings.button_bg_color | color_to_rgb | remove: 'rgb(' | remove: ')' -%}
           
             <div
