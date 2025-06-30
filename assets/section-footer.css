@@ -506,3 +506,26 @@
     }
   }
 }
+
+/* 1) make sure the logo block lives in the first column */
+.footer-block--logo {
+  grid-column: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2rem; /* same gutter as other blocks */
+}
+
+/* 2) constrain its image so it never gets too tall */
+.footer-block--logo img {
+  max-height: 4rem;
+  width: auto;
+}
+
+/* 3) on mobile, center the logo above everything else */
+@media screen and (max-width: 749px) {
+  .footer-block--logo {
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+}
