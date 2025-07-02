@@ -108,11 +108,68 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "multirow_gMdCVL": {
+      "type": "multirow",
+      "blocks": {
+        "row_f9QRLn": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<ul><li>{{ product.metafields.models.model_info.value.bust | metafield_tag }}</li><li>{{ product.metafields.models.model_info.value.name.value }}</li><li>{{ product.metafields.models.model_info.value.height | metafield_tag }}</li><li>{{ product.metafields.models.model_info.value.hips | metafield_tag }}</li></ul>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_kczLYN": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_qXwAXL": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_f9QRLn",
+        "row_kczLYN",
+        "row_qXwAXL"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "custom_liquid_wHrdND"
+    "custom_liquid_wHrdND",
+    "multirow_gMdCVL"
   ]
 }
